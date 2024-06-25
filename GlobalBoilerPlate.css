@@ -1,0 +1,164 @@
+/*Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property*/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)){
+    /* reset all the properties except the :not() ones*/
+    all: unset;
+    display: revert;
+}
+
+*{
+    /* remove font sizes and font weights from heading levels and elements*/
+    font: inherit;
+    /*Border Removal  */
+    border:none;
+}
+
+/* making sure margin+padding is included in the height and width */    
+*, *::before, *::after{
+    box-sizing: border-box;
+    /* this property does not automatically apply to the pesudo Elements/classes */
+}
+
+/* Changing the root font size. Also disabling the text inflation algorithms*/
+html{
+    /*If you like using rem(as they are better for accessibility)
+    <html> = the root */
+    /* 1 rem = 16px by default root font size*/
+    font-size: 62.5%;/* (62.5/100) */
+
+/*In smartphones and tablets browsers may some times inflate teh font sizes of text elements but coz they are not perfect and some times may end up correcting some elements for readability and not others.*/
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+
+/*to prevent overflow cause of such algorithms*/
+/* -webkit-text-size-adjust: 100%; */
+}
+
+html{
+    /* adds a default dark mode to your site */
+    color-scheme: dark light;
+    /*correct the line height in all the browsers*/
+    line-height: 1.15;
+}
+
+/* enable smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+    html{
+        scroll-behavior: smooth;
+    }
+    
+}
+
+/* Remove focus outline for mouse user but show outline for keyboard*/
+:focus:not(:focus-visible){
+    outline: none;
+}
+
+body{
+    min-height: 100vh;
+    line-height: 1;
+}
+
+/* responsive img and videos Forcing them to behave*/
+img, picture, svg, video{
+    /* cause img is an inline element, there is usually have that annoying little space underneath them.*/
+    display:block;
+    /* that may be fixed by Vertical align but not en every scenario. */
+    /* vertical-align: baseline; */
+
+    /* To prevent images from blowing up their containers. i.e., Containers should contain the images too.*/
+    max-width: 100%;
+}
+
+/*To use links instead of buttons Enhance link UnderLines */
+a{
+    /* Places underlines below the descenders */
+    text-underline-position: under;
+
+    /* Sets the thickness as a percentage of the font size */
+    text-decoration-thickness: 8;
+}
+
+/* form elements to have consistent font things  */
+input, textarea, button, select{
+    font: inherit;
+}
+
+/* Provide interactive element with a pointer cursor */
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox]{
+    cursor: pointer;
+}
+
+/* Reset (most) lists */
+menu:not(article menu),
+ol:not(article ol),
+ol:not(article ul){
+    /* removes list markers as they are rarely ever needed. */
+    list-style: none;
+    /* add the attribute-value role="list" to all the lists you want the Screen Readers to anounce like a list because the list-style:none disables this ability in some browsers*/
+}
+menu,
+ol,
+ul{
+    padding-left: 0;
+    /* list have some annoying padding added to their left  */
+}
+/* to avoid the overlap over the neighboring content or overflow the viewport caused by padding reset on list markers cause of the list markers appearing on the outside of lists */
+article ol,
+article ul{
+    list-style-position: inside;
+    /* switch the display of list markers from outside to inside*/
+}
+/* Removes spacing between cells in tables */
+table{
+    border-collapse: collapse;
+}
+
+/*Reverts the whiteSpace property for textarea elements on Safari  */
+textarea{
+    white-space: revert;
+}
+/* Semantic Tags To remain Semantic */
+header, footer, main{
+    display:block;
+}
+
+section h1, article h1{
+    font-size: 2rem;
+    margin:0.67em 0;
+}
+
+hr{
+    box-sizing: content-box;
+    height:0;
+    overflow:visible;
+}
+
+*{
+    /* Reset the margin and padding so that we can enter our own and not the defaults that may be set by the browser*/
+    /* margin:0; */
+    /* margins are used by body tag to make shure that the touch targets do not fall to the edges of mobile screens in the event that the Css doesn't load. */
+    padding:0;
+    
+    /* making sure margin+padding is included in the height and width calculation and not affect or cause the actual height width displayed to be more than the assigned height width*/    
+    box-sizing: border-box;
+    
+    /* font used by most websites */
+    font-family: sans-serif;
+
+}
+
+html,body{
+    /* so that body can take size of the entire page by default takes only the size of content*/
+    height: 100%;
+    width:100%;
+    /* center the contents of the body*/
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

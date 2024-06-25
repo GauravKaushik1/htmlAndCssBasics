@@ -1,0 +1,32 @@
+/* 
+media queries to test whether the user's screen is greater than a certain width, or a certain resolution) and style the page appropriately for the user's needs. */
+@media screen and (min-width: 80rem) {
+    .container {
+      margin: 1em 2em;
+    }
+  }
+  /*
+    Multicol provide a maximum number of columns and a minimum column width. This can ensure line lengths don't become unreadably long as the screen size increases or too narrow as the screen size decreases.
+  */
+  .container {
+    column-count: 3;
+    column-width: 10em;
+  }
+  /* 
+  FlexboxBy changing the values for flex-grow and flex-shrink you can indicate how you want the items to behave when they encounter more or less space around them.
+   */
+   .container {
+    display: flex;
+  }
+  
+  .item {
+    flex: 1;
+  }
+  /* 
+  Responsive images/media: To ensure media is never larger than its responsive container, the following approach can be used:
+   */
+   img,
+picture,
+video {
+  max-width: 100%;
+}

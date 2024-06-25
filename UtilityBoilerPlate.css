@@ -1,0 +1,60 @@
+
+.flex, .💪{
+    display: flex;
+}
+.center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col{
+    display:flex;
+    flex-direction: column;
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+}
+
+.gap-10{
+    gap: 10px;
+}
+
+
+
+.drop{
+    animation: dropIn 1s ease-in forwards;
+    animation-delay: 2;
+}
+
+
+@keyframes dropIn {
+    from{
+        transform:translatey(-500px);
+    }
+    to{
+        transform: translateY(0);
+    }
+    
+}
+
+.ace{
+    animation-delay: 100ms;
+}
+.deuce{
+    animation-delay: 200ms;
+}
+.trey{
+    animation-delay: 300ms;
+}
+.rCorner{
+    border-radius: 30px;
+}
+.pad-15{
+    padding:15px;
+}
+.border{
+    border:2px solid black;
+}

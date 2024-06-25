@@ -1,0 +1,496 @@
+/* CSS without frame-works and libraries */
+/* 
+covered in separate files for now check the various css and html files for the knowledge of css that can be done without the frameworks and libraries
+1. Positioning : Absolute & Relative
+2. Responsiveness
+3. FlexBox- Flexbox froggy
+4. Animations
+5. Clamp - for responsiveness takes-minimum value maximum value and relative value
+6. Aspect ratio- Alternative height inherit
+7. Use emoji in css class names
+Others:
+    viewport-height and width
+    the rem - root element width 16 px relatively is 1 rem
+    media querries
+    posh css
+    gridComponents-GridGarden
+    root
+    utilities like name of colors and variables for properties
+    content property used with ::before and ::after super class 
+
+ */
+ :root{
+    --text-Color:rgb(255,0,0);
+    --heading-1-color:rgb(255, 185, 34);
+    --container-bg:rgb(130, 231, 47);
+
+    /* //hybrid color making */
+    --r:255;
+    --g:255;
+    --b:10;
+    --texting-rbg:rgb(var(--r),var(--g),var(--b));
+    
+    /* heading counter setup */
+    counter-reset: heading1;
+    /* heading1 is the new heading variable */
+    counter-reset: heading2;
+    counter-reset: heading3;
+    counter-reset: heading4;
+    counter-reset: heading5;
+    counter-reset: heading6;
+ }
+/* Material colors */
+:root{
+    --lightRed:#FF8A80;
+    --red:#FF5252;
+    --lightPink:#F48FB1;
+    --pink:#FF4081;
+    --lightPurple:#EA80FC;
+    --Purple:#AA00FF;
+    --DarkPurple:#7C4FFF;
+    --lightYellow:#FBC02D;
+    --Yellow:#FFD600;
+    --LightOrange:#EF6C00;
+    --orange:#ff6d00;
+}
+
+ p{
+    color:var(--text-Color);
+    background-color: var(--DarkPurple);
+}
+p>u{
+    /* using hybrid color made */
+    color:var(--texting-rbg);
+}
+h1{
+    color:var(--heading-1-color) ;
+    counter-increment: heading1;
+}
+h1::before{
+    content: counter(heading1);
+}
+h2{
+    color: var(--Purple);
+    counter-increment: heading2;
+}
+h2::before{
+    content: counter(heading2);
+}
+h3{
+    counter-increment: heading3;
+}
+h3::before{
+    content: counter(heading3);
+}
+h4{
+    counter-increment: heading4;
+}
+h4::before{
+    content: counter(heading4);
+}
+h5{
+    counter-increment: heading5;
+}
+h5::before{
+    content: counter(heading5);
+}
+h6{
+    counter-increment: heading6;
+}
+h6::before{
+    content: counter(heading6);
+}
+h1,h2,h3,h4,h5,h6{
+    border: 2px solid grey;
+    padding:5px;
+    margin:2px;
+    /* display:flex;
+    gap:2px;
+    font-size: initial;
+    flex-wrap: wrap; */
+
+}
+em::before{
+    content: open-quote;
+}
+em::after{
+    content: close-quote;
+}
+.container{
+    /* width:calc(100vw-80px); */
+    max-width: 88vw;
+    position: relative;
+    padding-top: 25px;
+    background-color: var(--container-bg);
+    font-size: calc(1rem*1.25);
+    padding: calc(5%+2px);
+    height: clamp(500px, auto, 88vh);
+ }
+ .element{
+    position:absolute;
+
+ }
+ video{
+    width:100%;
+    position:absolute;
+    top:0;
+}
+/* or
+    video{
+        width: 100%;
+        aspect-ratio: 2/3;
+    } */
+
+
+
+    #pond{
+        display: flex;
+        justify-content:flex-end;
+        justify-content:center;
+        justify-content: space-around;
+        justify-content: space-between;
+        align-items: flex-end;
+        
+        /* to reach the center of the pond or container element */
+        justify-content: center;
+        align-items: center;
+        /*  */
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-direction: row-reverse;/*changes the order*/
+        flex-direction: column;
+        /* set reverse order but stay at the same position */
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        /*  */
+        flex-direction: column;
+        justify-content: flex-end;
+        /*  */
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        /*  */
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        justify-content: center;
+        /*  */
+        flex-wrap: wrap;
+        /*  */
+        flex-direction: column;
+        flex-wrap: wrap;
+        /*  */
+        flex-flow: column wrap;
+        /*  */
+        flex-wrap: wrap;
+        align-content: flex-start;
+        /*  */
+        flex-wrap: wrap;
+        align-content: flex-end;
+        /*  */
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-content: center;
+        /*  */
+        flex-direction: column-reverse;
+        flex-wrap: wrap-reverse;
+        align-content: space-between;
+        justify-content: center;
+        /*  */
+        /*  justify-content property, which aligns items horizontally and accepts the following values:
+
+flex-start: Items align to the left side of the container.
+flex-end: Items align to the right side of the container.
+center: Items align at the center of the container.
+space-between: Items display with equal spacing between them.
+space-around: Items display with equal spacing around them. 
+space-evenly	Items will have equal space around them	
+initial	Sets this property to its default value.
+inherit	Inherits this property from its parent element. 
+ 
+align-items CSS property aligns items vertically and accepts the following values:
+
+flex-start: Items align to the top of the container.
+flex-end: Items align to the bottom of the container.
+center: Items align at the vertical center of the container.
+baseline: Items display at the baseline of the container.
+stretch: Items are stretched to fit the container.
+
+flex-direction CSS property defines the direction items are placed in the container, and accepts the following values:
+
+row: Items are placed the same as the text direction.
+row-reverse: Items are placed opposite to the text direction.
+column: Items are placed top to bottom.
+column-reverse: Items are placed bottom to top.
+
+Notice that when the flex direction is a column, justify-content changes to the vertical and align-items to the horizontal.
+
+Sometimes reversing the row or column order of a container is not enough. In these cases, we can apply the order property to individual items. By default, items have a value of 0, but we can use this property to also set it to a positive or negative integer value (-2, -1, 0, 1, 2).
+
+Another property you can apply to individual items is align-self. This property accepts the same values as align-items and its value for the specific item.
+
+flex-wrap property, which accepts the following values:
+
+nowrap: Every item is fit to a single line.
+wrap: Items wrap around to additional lines.
+wrap-reverse: Items wrap around to additional lines in reverse.
+The two properties flex-direction and flex-wrap are used so often together that the shorthand property flex-flow was created to combine them. This shorthand property accepts the value of the two properties separated by a space.
+
+For example, you can use flex-flow: row wrap to set rows and wrap them.
+
+ You can use align-content to set how multiple lines are spaced apart from each other. This property takes the following values:
+
+flex-start: Lines are packed at the top of the container.
+flex-end: Lines are packed at the bottom of the container.
+center: Lines are packed at the vertical center of the container.
+space-between: Lines display with equal spacing between them.
+space-around: Lines display with equal spacing around them.
+stretch: Lines are stretched to fit the container.
+This can be confusing, but align-content determines the spacing between lines, while align-items determines how the items as a whole are aligned within the container. When there is only one line, align-content has no effect.
+*/
+    }
+    .yellow{
+        order: 2;
+        align-self: flex-end;
+    }
+    .red {
+        order: -1;
+    }
+    #garden{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 20% 20% 20% 20% 20%;
+
+    /* Grid Layout
+The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.
+Grid Elements
+A grid layout consists of a parent element, with one or more child elements. 
+Display Property
+An HTML element becomes a grid container when its display property is set to grid or inline-grid.
+
+Example
+.grid-container {
+  display: grid;
+}
+
+Example
+.grid-container {
+  display: inline-grid;
+}
+
+All direct children of the grid container automatically become grid items.
+
+Grid Columns
+The vertical lines of grid items are called columns.
+
+
+Grid Rows
+The horizontal lines of grid items are called rows.
+
+
+Grid Gaps
+The spaces between each column/row are called gaps.
+
+
+You can adjust the gap size by using one of the following properties:
+
+column-gap
+row-gap
+gap
+Grid Lines
+The lines between columns are called column lines.
+
+The lines between rows are called row lines.
+ 
+grid-column-start: 3; will water the area starting at the 3rd vertical grid line, which is another way of saying the 3rd vertical border from the left in the grid.
+
+Up to this point, you've had your garden set up as a grid with five columns, each 20% of the full width, and five rows, each 20% of the full height.
+
+This was done with the rules grid-template-columns: 20% 20% 20% 20% 20%; and grid-template-rows: 20% 20% 20% 20% 20%; Each rule has five values which create five columns, each set to 20% of the overall width of the garden.
+
+But you can set the grid up however you like. Give grid-template-columns a new value to water your carrots. You'll want to set the width of the 1st column to be 50%.
+ 
+
+
+Specifying a bunch of columns with identical widths can get tedious. Luckily there's a repeat function to help with that.
+
+For example, we previously defined five 20% columns with the rule grid-template-columns: 20% 20% 20% 20% 20%;. This can be simplified as grid-template-columns: repeat(5, 20%);
+
+Using grid-template-columns with the repeat function, create eight columns each with 12.5% width. This way you won't overwater your garden.
+
+#garden {
+  display: grid;
+grid-template-columns:repeat(8,12.5%);
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+grid-template-columns doesn't just accept values in percentages, but also length units like pixels and ems. You can even mix different units together.
+
+Here, set three columns to 100px, 3em, and 40% respectively.
+
+#garden {
+  display: grid;
+grid-template-columns: 100px 3em 40% ;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+Grid also introduces a new unit, the fractional fr. Each fr unit allocates one share of the available space. For example, if two elements are set to 1fr and 3fr respectively, the space is divided into 4 equal shares; the first element occupies 1/4 and the second element 3/4 of any leftover space.
+
+Here, weeds make up the left 1/6 of your first row and carrots the remaining 5/6. Create two columns with these widths using fr units.
+
+#garden {
+  display: grid;
+grid-template-columns: 1fr 5fr;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+When columns are set with pixels, percentages, or ems, any other columns set with fr will divvy up the space that's left over.
+
+Here the carrots form a 50 pixel column on the left, and the weeds a 50 pixel column on the right. With grid-template-columns, create these two columns, and use fr to make three more columns that take up the remaining space in between.
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+#garden {
+  display: grid;
+grid-template-columns:50px 1fr 1fr 1fr 50px
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+#water {
+  grid-area: 1 / 1 / 6 / 2;
+}
+
+#poison {
+  grid-area: 1 / 5 / 6 / 6;
+}
+
+Now there is a 75 pixel column of weeds on the left side of your garden. 3/5 of the remaining space is growing carrots, while 2/5 has been overrun with weeds.
+
+Use grid-template-columns with a combination of px and fr units to make the necessary columns.
+
+#garden {
+  display: grid;
+grid-template-columns:75px 3fr 2fr;
+  grid-template-rows: 100%;
+}
+
+grid-template-rows works much the same as grid-template-columns.
+
+Use grid-template-rows to water all but the top 50 pixels of your garden. Note that the water is set to fill only your 5th row, so you'll need to create 5 rows in total.
+
+#garden {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+grid-template-rows:10px 20px 10px 10px 1fr;
+}
+
+#water {
+  grid-column: 1 / 6;
+  grid-row: 5 / 6;
+}
+
+grid-template is a shorthand property that combines grid-template-rows and grid-template-columns.
+
+For example, grid-template: 50% 50% / 200px; will create a grid with two rows that are 50% each, and one column that is 200 pixels wide.
+
+Try using grid-template to water an area that includes the top 60% and left 200 pixels of your garden.
+
+#garden {
+  display: grid;
+grid-template:60% /200px 1fr;
+}
+
+#water {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+Your garden is looking great. Here you've left a 50 pixel path at the bottom of your garden and filled the rest with carrots.
+
+Unfortunately, the left 20% of your carrots have been overrun with weeds. Use CSS grid one last time to treat your garden.
+
+#garden {
+  display: grid;
+grid-template: 1fr 50px/ 20% 1fr
+}
+
+*/
+}
+#water{
+        /* 
+        When grid-column-start is used alone, the grid item by default will span exactly one column. However, you can extend the item across multiple columns by adding the grid-column-end property. 
+        */
+        grid-column-start:3;
+        /* the value of end is not included */
+        grid-column-start: 1;
+        grid-column-end:4;
+        /* When pairing grid-column-start and grid-column-end, you might assume that the end value has to be greater than the start value. But this turns out not the case! */
+        grid-column-start: 5;
+        grid-column-end:2;
+        /* If you want to count grid lines from the right instead of the left, you can give grid-column-start and grid-column-end negative values. For example, you can set it to -1 to specify the first grid line from the right. The value of end when smaller than start will be included even if the end value is negative i.e., we want to count from the right the gridlines*/
+        grid-column-start: 1;
+        grid-column-end: -2;
+        /* Instead of defining a grid item based on the start and end positions of the grid lines, you can define it based on your desired column width using the span keyword. Keep in mind that span only works with positive values.
+
+        For example, water these carrots with the rule grid-column-end: span 2;. */
+        grid-column-start: 2;
+        grid-column-end: span 2;
+        /*  */
+        grid-column-start: 1;
+        grid-column-end:span4;
+        /*  */
+        grid-column-start: 3;
+        grid-column-end: 6;
+        /*Typing both grid-column-start and grid-column-end every time can get tiring. Fortunately, grid-column is a shorthand property that can accept both values at once, separated by a slash.  
+        For example, grid-column: 2 / 4; will set the grid item to start on the 2nd vertical grid line and end on the 4th grid line.*/
+        grid-column: 4/6;
+        /* Try using grid-column to water these carrots. The span keyword also works with this shorthand property so give it a try! */
+        grid-column:2/span 3;
+        /* One of the things that sets CSS grids apart from flexbox is that you can easily position items in two dimensions: columns and rows. grid-row-start works much like grid-column-start except along the vertical axis.
+
+Use grid-row-start to water these carrots. */
+        grid-row-start:3;
+        /*  */
+        grid-row: 3/span3;
+        /*  */
+        grid-column:2/span4;
+        grid-row:1/span4;
+        /* If typing out both grid-column and grid-row is too much for you, there's yet another shorthand for that. grid-area accepts four values separated by slashes: grid-row-start, grid-column-start, grid-row-end, followed by grid-column-end.
+
+One example of this would be grid-area: 1 / 1 / 3 / 6;. */
+        grid-area: 1/2/4/6;
+        /*  */
+        order:0;
+        /*  */
+    }
+    #poison{
+        grid-column-start:5;
+        /* grid-column-start:-1; lies outside of the grid */
+        grid-column-start:-3;
+        /*  */
+        grid-column:2;
+        grid-row:5;
+        /* If grid items aren't explicitly placed with grid-area, grid-column, grid-row, etc., they are automatically placed according to their order in the source code. We can override this using the order property, which is one of the advantages of grid over table-based layout.
+
+By default, all grid items have an order of 0, but this can be set to any positive or negative value, similar to z-index. */    
+        order: 1;
+        /*  */
+        order:-1;
+        /*  */
+    }
