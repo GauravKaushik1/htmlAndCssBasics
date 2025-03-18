@@ -1,1 +1,1 @@
-Project is still in beta stages so please help support and donate to the cause to make it the best development cheatsheet and boiler plate. Also make as many forks of it as possible and grant them to me . Thank you very much for the visit here we go.
+Project is still in beta stages so please help support and donate to the cause to make it the best development cheatsheet and boiler plate. Also make as many forks of it as possible and grant them to me . Thank you very much for the visit here.
